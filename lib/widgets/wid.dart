@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_button/widgets/app_btn_style.dart';
+
+import 'app_btn_style.dart';
+/* import 'package:flutter_button/widgets/app_btn_style.dart';
+import 'package:flutter_button/widgets/main_screen/main_screen_widget.dart'; */
 
 class AuthWidget extends StatefulWidget {
   AuthWidget({Key? key}) : super(key: key);
@@ -77,17 +80,21 @@ class FormWidget extends StatefulWidget {
 
 class _FormWidgetState extends State<FormWidget> {
 
-  final _loginTextController = TextEditingController();
-  final _passTextController = TextEditingController();
+  final _loginTextController = TextEditingController(text: "admin");
+  final _passTextController = TextEditingController(text: "admin");
   String? errorText = null;
 
-void _auth (){
+  void _auth (){
   final login = _loginTextController.text;
   final pass = _passTextController.text;
 
-  if (login == 'admin' && pass == 'admin'){
+   if (login == 'admin' && pass == 'admin'){
     print("molodec");
     errorText = null;
+
+    final navigator = Navigator.of(context);
+    navigator.pushReplacementNamed('/main screen');
+    
   } else {
     errorText = 'Neverniy pass or log';
 
@@ -114,7 +121,7 @@ void _resetPassword (){
                 color: Colors.red,
               ),),
               ],
-             
+
               SizedBox(height: 15),
         Text("Username"),
          SizedBox(height: 10,),

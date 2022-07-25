@@ -13,3 +13,9 @@ abstract class AppButtonStyle {
   
 
 }
+
+
+
+abstract class AppColors {
+  static const mainpDarkBlue =  Color.fromRGBO(3, 37, 65, 1);
+}
